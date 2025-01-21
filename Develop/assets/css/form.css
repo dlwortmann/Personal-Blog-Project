@@ -19,7 +19,7 @@ aside {
 
 aside, 
 section {
-  flex: 1 1 50%;
+  flex: 1 1 fit-content;
 }
 
 aside > h2 {
@@ -30,6 +30,7 @@ aside > h2 {
 
 form {
   display: flex;
+  width: 50%;
   flex-flow: column wrap;
   position: relative;
 }
@@ -96,4 +97,13 @@ section {
   opacity: .75;
   position: absolute;
   bottom: -2rem;
+}
+
+#blog-container {
+  display: flex;
+  flex-direction: row;
+}
+
+#blog-aside {
+  width: 100px;
 }
