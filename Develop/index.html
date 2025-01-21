@@ -15,12 +15,12 @@
 <body class = 'darkMode'>
   <!-- TODO: Create landing page elements to match the mock-up provided. At the very least, include the following elements. -->
    <header>
-    <button id = 'toggle' class = 'dark section' onclick = 'darkMode()'>Dark Mode On/Off</button> 
+    <button id = 'toggle' class = 'dark' onclick = 'darkMode()'>Dark Mode On/Off</button> 
    </header>
 
    <aside>
     <section>
-    <h2>My First Blog</h2>
+    <h1>My First Blog</h1>
     </section>
    </aside>
    <!-- A form element that contains the following: -->
@@ -28,17 +28,17 @@
     <section>
       <h2>What's On Your Mind?</h2>
        <!-- An input element whose label and id are `username` -->
-      <label>Username:</label>
-        <input id = "username" required><br><br>
+      <label for = 'username'>Username:</label>
+        <input type = 'text' id = 'username'  required><br><br>
       <!-- An input element whose label and id are `title` -->
-        <label>Title:</label>
-        <input id = "title" required><br><br>
+        <label for = 'title' >Title:</label>
+        <input text = 'text' id = "title" required><br><br>
        <!-- A textarea element whose label and id are `content` -->
-        <label>Content:</label>
-        <textarea  id = "content" required></textarea><br><br>
-        <button type="button">Submit </button>  
+        <label for = 'content'>Content:</label>
+        <textarea id = "content" required></textarea><br><br>
       <!-- A p element whose id is `error` -->
        <p id = "error"></p>  
+       <button type="button">Submit </button>
     </section>
    </form>
    <footer>
