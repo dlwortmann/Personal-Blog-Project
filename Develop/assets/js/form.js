@@ -2,7 +2,6 @@
 
 // TODO: Create a function that handles the form submission.
 function formSubmission(event) {
-    console.log('click')
     let formData = {
         username: "",
         title: "",
