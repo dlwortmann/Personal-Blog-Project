@@ -1,38 +1,32 @@
 // TODO: Create a variable that selects the form element
 
+
+
+
 // TODO: Create a function that handles the form submission.
 function formSubmission(event) {
-    let formData = {
-        username: "",
-        title: "",
-        content: ""
-    }
     event.preventDefault();
-    let blogData = JSON.parse(localStorage.getItem('blogData')) || []
-
-    const username = document.getElementById('username').value
-    const title = document.getElementById('title').value
-    const content = document.getElementById('content').value
-    
-    if (!username || !title || !content) {
-        alert("Please complete the form")
-        return;
+    let formData  = {
+        username: document.getElementById('username').value,
+        title: document.getElementById('title').value,
+        content: document.getElementById('content').value
+        
     }
-//Grab the form data and store it in local storage,
-    formData.username = username
-    formData.title = title
-    formData.content = content
-    blogData.push(formData)
-    localStorage.setItem('blogData', JSON.stringify(blogData))
-    
-    redirectPage() 
+    storeLocalStorage(formData)
+    //if (JSON.parse(localStorage.getItem('blogData')) === null) {
+        //localStorage.setItem('blogData', JSON.stringify(formData))
+    //}
+    toBlogPage() //  then redirect to the blog page using the `redirectPage` function. 
+
 }    
  
 function redirectPage() {
     window.location.href="./blog.html"
 }
-//  then redirect to the blog page using the `redirectPage` function. 
+
+
 //If the form is submitted with missing data, display an error message to the user.
+
 
 
 

@@ -12,13 +12,15 @@
     <script defer src="./assets/js/logic.js" type="text/javascript"></script>
     <script defer src="./assets/js/form.js" type="text/javascript"></script>
   </head>
-<body class = 'darkMode'>
+<body class = 'dark'>
+
   <!-- TODO: Create landing page elements to match the mock-up provided. At the very least, include the following elements. -->
    <header>
-    <button id = 'toggle' class = 'dark' onclick = 'darkMode()'>Dark Mode On/Off</button> 
+       <button id = 'toggle' class = 'dark'>Dark Mode On/Off</button> 
    </header>
+   <main>
    <section id = 'blog-container'>
-   <aside id = "blog-aside">
+   <aside>
     <section>
     <h2>My First Blog</h2>
     </section>
@@ -30,19 +32,20 @@
       <h2>What's On Your Mind?</h2>
        <!-- An input element whose label and id are `username` -->
       <label for = 'username'>Username:</label>
-        <input type = 'text' id = 'username'  required><br><br>
+        <input type = 'text' id = 'username'><br><br>
       <!-- An input element whose label and id are `title` -->
         <label for = 'title' >Title:</label>
-        <input text = 'text' id = "title" required><br><br>
+        <input text = 'text' id = "title"><br><br>
        <!-- A textarea element whose label and id are `content` -->
         <label for = 'content'>Content:</label>
-        <textarea id = "content" required></textarea><br><br>
+        <textarea id = "content"></textarea><br><br>
       <!-- A p element whose id is `error` -->
-       <p id = "error"></p>  
+       <p id = "error" style = "color:red; display: none;">Please complete the form.</p>  
        <button type="submit">Submit </button>
     </section>
    </form>
   </section>
+</main>
    <footer>
     <h2>Thanks for visiting my blog!</h2>
     </footer>
