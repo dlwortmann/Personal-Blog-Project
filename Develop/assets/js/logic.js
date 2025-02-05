@@ -1,55 +1,81 @@
 // TODO: Create logic to toggle the light/dark mode styles for the page and circle. The mode should be saved to local storage.
 const toggleButton = document.getElementById('toggle')
+let lightMode = "light"
 
-toggleButton.addEventListener('click', () =>{
-  document.body.classList.toggle('dark')
-})
+console.log(toggleButton)
+
+var circle = document.querySelector(':root')
+
+function getFunction() {
+  var styles = getComputedStyle(circle)
+  var circleColor = styles.getPropertyValue("--circle-color")
+
+  console.log(circleColor)
+}
+if (toggleButton) {
+  toggleButton.addEventListener("click", () => {
+    console.log('clicked toggle')
+    document.body.classList.toggle('light');
+    const isDarkMode = !document.body.classList.contains('light');
+    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light')
+  });
+}
 
 
 
 // TODO: Create a function called `readLocalStorage` that reads from local storage and returns the data. If no data exists, return an empty array.
 
 function readLocalStorage () {
-  let tempStorage = []
-  if (JSON.parse(localStorage.getItem('blogData')) === null) {
-    return tempStorage 
-  } 
-  let tempItem = JSON.parse(localStorage.getItem('blogData'))
-  //return tempStorage = JSON.parse(localStorage.getItem('blogData'))
-  // console.log('tempItem: ' + tempItem)
+  const prevPosts = localStorage.getItem('blogEntry');
+  return prevPosts ? JSON.parse(prevPosts) : [];
+}
+readLocalStorage()
 
-}//readLocalStorage funtion should return an array of objects(all the old posts), storeLocalstorage function should call read local storage function []=readLocalStorage, all old post stored as an array. Store local storage should be pushing new post to the end of the old array defined by readLocalStorage
+function storeLocalStorage() {
+  const prevPosts = localStorage.getItem('blogPost')
+  const blogEntry = prevPosts ? JSON.parse(prevPosts) : []
+  blogEntry.push(newData)
+  localStorage.setItem('blogEntry', JSON.stringify(blogEntry))
+} 
+storeLocalStorage(blogPosts)
+
+const savedTheme = localStorage.getItem('theme')
+  if (savedTheme === 'dark') {
+    document.body.classList.remove('light');
+  }
+
+//readLocalStorage funtion should return an array of objects(all the old posts), storeLocalstorage function should call read local storage function []=readLocalStorage, all old post stored as an array. Store local storage should be pushing new post to the end of the old array defined by readLocalStorage
 
 
 // TODO: Create a function called `storeLocalStorage` that takes a given object and saves the new data to the existing blog data in local storage.
-function storeLocalStorage (formData) {
-  let postArray = []
-  readLocalStorage()
-  postArray = JSON.parse(localStorage.getItem('blogData'))
-  console.log(typeof(tempItem))
-  if  (username === '' || 
-    title === ''|| 
-    content === '') {
-    errorMessage.textContent = "Please complete the form."
+//function storeLocalStorage (formData) {
+  //let postArray = []
+  //readLocalStorage()
+  //postArray = JSON.parse(localStorage.getItem('blogData'))
+  //console.log(typeof(tempItem))
+  //if  (username === '' || 
+    //title === ''|| 
+    //content === '') {
+    //errorMessage.textContent = "Please complete the form."
     // plug in variable.textContent = "Please complete the form."
-    return false;
-  }
+    //return false;
+  //}
 
-  else {
-    //Grab the form data and store it in local storage,
-    console.log(formData)
-    console.log(postArray)
-    postArray.push(formData)
-    localStorage.setItem('blogData', JSON.stringify(postArray))
-    }
+  // else {
+  //   //Grab the form data and store it in local storage,
+  //   console.log(formData)
+  //   console.log(postArray)
+  //   postArray.push(formData)
+  //   localStorage.setItem('blogData', JSON.stringify(postArray))
+  //   }
 
-}
+//}
 
 
 // ! Use the following function whenever you need to redirect to a different page
-//let redirectURL = '';
+let redirectURL = '';
 
-//const redirectPage = function () {
-  //redirectURL = window.location.href=
-  //location.assign(url);
-//}
+const redirectPage = function (url) {
+  redirectURL = url;
+  location.assign(url)
+}
