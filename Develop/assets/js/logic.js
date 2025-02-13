@@ -20,29 +20,30 @@ if (toggleButton) {
     localStorage.setItem('theme', isDarkMode ? 'dark' : 'light')
   });
 }
+const savedTheme = localStorage.getItem('theme')
+  if (savedTheme === 'dark') {
+    document.body.classList.remove('light');
+  }
 
 
 
 // TODO: Create a function called `readLocalStorage` that reads from local storage and returns the data. If no data exists, return an empty array.
 
 function readLocalStorage () {
-  const prevPosts = localStorage.getItem('blogEntry');
+  const prevPosts = localStorage.getItem("blogEntry");
   return prevPosts ? JSON.parse(prevPosts) : [];
 }
 readLocalStorage()
 
-function storeLocalStorage() {
-  const prevPosts = localStorage.getItem('blogPost')
-  const blogEntry = prevPosts ? JSON.parse(prevPosts) : []
-  blogEntry.push(newData)
-  localStorage.setItem('blogEntry', JSON.stringify(blogEntry))
+function storeLocalStorage(blogEntry) {
+  let prevPosts = JSON.parse(localStorage.getItem("blogEntry")) || []
+ //const blogEntry = prevPosts ? JSON.parse(prevPosts) : []
+  prevPosts.push(blogEntry)
+  localStorage.setItem("blogEntry", JSON.stringify(prevPosts))
 } 
-storeLocalStorage(blogPosts)
+//storeLocalStorage()
 
-const savedTheme = localStorage.getItem('theme')
-  if (savedTheme === 'dark') {
-    document.body.classList.remove('light');
-  }
+
 
 //readLocalStorage funtion should return an array of objects(all the old posts), storeLocalstorage function should call read local storage function []=readLocalStorage, all old post stored as an array. Store local storage should be pushing new post to the end of the old array defined by readLocalStorage
 

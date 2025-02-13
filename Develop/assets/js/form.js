@@ -1,6 +1,6 @@
-// TODO: Create a variable that selects the form element
+// TODO: Create a variable that selects the form element.
 
-const formElement = document.getElementById('formInput');
+const formElement = document.getElementById('formInput')
 
 const blogPost = {
     username: "",
@@ -28,9 +28,9 @@ function formSubmission(event) {
     blogPost.title = title;
     blogPost.content = content;
 
-    storeLocalStorage({...blogPosts})
+    storeLocalStorage(blogPost)
     
-    redirectPage("blog.html");
+    redirectPage("./blog.html");
    
 }
  
