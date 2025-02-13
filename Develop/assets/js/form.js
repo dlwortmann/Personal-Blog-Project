@@ -7,7 +7,7 @@ const blogPost = {
     title: "",
     content: ""
 }
-let blogPosts = JSON.stringify(blogPost)
+//let blogPosts = JSON.stringify(blogPost)
 //let blogPosts = readLocalStorage();
 
 

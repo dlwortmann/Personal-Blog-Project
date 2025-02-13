@@ -7,11 +7,11 @@ backButton.addEventListener("click", function () {
 })
 
 // TODO: Create a function that builds an element and appends it to the DOM
-function buildElements(blogPost) {
+function buildElements(blogPosts) {
     
-    console.log(blogPost)
-    for (let i = 0; i < blogPost.length; i++) {
-        const addPost = blogPost[i];
+    console.log(blogPosts)
+    for (let i = 0; i < blogPosts.length; i++) {
+        const addPost = blogPosts[i];
 
         const article = document.createElement('article');
         article.textContent = addPost.username;
@@ -35,10 +35,10 @@ function noPosts () {
 }
 // TODO: Create a function called `renderBlogList` that renders the list of blog posts if they exist. If not, call the no posts function.
 function renderBlogList() {
-    let blogPost = readLocalStorage()
-    if (blogPost == null || blogPost.length === 0) {
+    let blogPosts = readLocalStorage()
+    if (blogPosts == null || blogPosts.length === 0) {
         noPosts()
-    } else buildElements(blogPost)
+    } else buildElements(blogPosts)
 
 }
 // TODO: Call the `renderBlogList` function
